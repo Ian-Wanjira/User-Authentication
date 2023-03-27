@@ -20,3 +20,17 @@ class RegisterView(View):
             return render(request, 'register.html', {'form': form})
 
 
+class LoginView(View):
+    def get(self, request):
+        return render(request, 'login.html')
+
+    def post(self, request):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'Username or password is incorrect.')
+            return render(request, 'login.html')

@@ -39,3 +39,7 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('login')
+    
+class HomeView(View):
+    def get(self, request):
+        return render(request, 'home.html')

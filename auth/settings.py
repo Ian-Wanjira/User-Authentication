@@ -45,8 +45,7 @@ INSTALLED_APPS = [
     'UserAuth',
     'tailwind',
     'django_browser_reload',
-    'django.contrib.staticfiles',,
-    'tailwind'
+    
 ]
 
 MIDDLEWARE = [
